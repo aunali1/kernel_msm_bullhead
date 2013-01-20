@@ -106,6 +106,11 @@ static inline bool vcpu_mode_priv(const struct kvm_vcpu *vcpu)
 	return mode != PSR_MODE_EL0t;
 }
 
+static inline bool kvm_vcpu_reg_is_pc(struct kvm_vcpu *vcpu, int reg)
+{
+	return reg == 15;
+}
+
 static inline u32 kvm_vcpu_get_hsr(const struct kvm_vcpu *vcpu)
 {
 	return vcpu->arch.fault.esr_el2;
